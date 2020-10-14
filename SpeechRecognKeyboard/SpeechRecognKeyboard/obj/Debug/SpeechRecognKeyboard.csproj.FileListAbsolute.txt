@@ -47,3 +47,4 @@ C:\Users\SUNTECH\source\repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRe
 C:\Users\SUNTECH\source\repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\obj\Debug\SpeechRecognKeyboard.csproj.CopyComplete
 C:\Users\SUNTECH\source\repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\obj\Debug\SpeechRecognKeyboard.exe
 C:\Users\SUNTECH\source\repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\obj\Debug\SpeechRecognKeyboard.pdb
+C:\Users\SUNTECH\source\repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\obj\Debug\Theme\Localization_ko-KR.baml

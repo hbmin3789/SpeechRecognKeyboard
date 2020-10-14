@@ -4,156 +4,188 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SpeechRecognKeyboard.Controls"
+             xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             DataContext="{StaticResource MainViewModel}">
     <UserControl.Resources>
         <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedLightButton}">
             <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="Command" Value="{Binding OpenKeySettingDialogCommand}"/>
+            <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Mode=Self},
+                                                                Path=Content}"/>
         </Style>
     </UserControl.Resources>
-    <Grid Background="White">
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition Width="100"/>
-            </Grid.ColumnDefinitions>
-            <!--#region Grid.Row=0 Content-->
-            <Button Content="`" Grid.Column="0"/>
-            <Button Content="1" Grid.Column="1"/>
-            <Button Content="2" Grid.Column="2"/>
-            <Button Content="3" Grid.Column="3"/>
-            <Button Content="4" Grid.Column="4"/>
-            <Button Content="5" Grid.Column="5"/>
-            <Button Content="6" Grid.Column="6"/>
-            <Button Content="7" Grid.Column="7"/>
-            <Button Content="8" Grid.Column="8"/>
-            <Button Content="9" Grid.Column="9"/>
-            <Button Content="0" Grid.Column="10"/>
-            <Button Content="-" Grid.Column="11"/>
-            <Button Content="=" Grid.Column="12"/>
-            <Button Content="Backspace" Grid.Column="13" FontSize="11"/>
-            <!--#endregion-->
-        </Grid>
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions >
-                <ColumnDefinition Width="1.8*"/>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition Width="1.8*"/>
-            </Grid.ColumnDefinitions>
-            <!--#region Grid.row=1 Content-->
-            <Button Content="TAB" Grid.Column="0" FontSize="18"/>
-            <Button Content="Q" Grid.Column="1"/>
-            <Button Content="W" Grid.Column="2"/>
-            <Button Content="E" Grid.Column="3"/>
-            <Button Content="R" Grid.Column="4"/>
-            <Button Content="T" Grid.Column="5"/>
-            <Button Content="Y" Grid.Column="6"/>
-            <Button Content="U" Grid.Column="7"/>
-            <Button Content="I" Grid.Column="8"/>
-            <Button Content="O" Grid.Column="9"/>
-            <Button Content="P" Grid.Column="10"/>
-            <Button Content="[" Grid.Column="11"/>
-            <Button Content="]" Grid.Column="12"/>
-            <Button Content="\" Grid.Column="13" FontSize="18"/>
-            <!--#endregion-->
-        </Grid>
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
-            <!--#region Grid.row=2 Content-->
-            <Button Content="CapsLock" Grid.Column="0" FontSize="12"/>
-            <Button Content="A" Grid.Column="1"/>
-            <Button Content="S" Grid.Column="2"/>
-            <Button Content="D" Grid.Column="3"/>
-            <Button Content="F" Grid.Column="4"/>
-            <Button Content="G" Grid.Column="5"/>
-            <Button Content="H" Grid.Column="6"/>
-            <Button Content="J" Grid.Column="7"/>
-            <Button Content="K" Grid.Column="8"/>
-            <Button Content="L" Grid.Column="9"/>
-            <Button Content=";" Grid.Column="10"/>
-            <Button Content="'" Grid.Column="11"/>
-            <Button Content="Enter" Grid.Column="12"  FontSize="15"/>
-            <!--#endregion-->
-        </Grid>
-        <Grid Grid.Row="3">
-            <Grid.ColumnDefinitions >
-                <ColumnDefinition Width="2.2*"/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="2.2*"/>
-            </Grid.ColumnDefinitions>
-            <Button Content="SHIFT" Grid.Column="0"  FontSize="13"/>
-            <Button Content="Z" Grid.Column="1"/>
-            <Button Content="X" Grid.Column="2"/>
-            <Button Content="C" Grid.Column="3"/>
-            <Button Content="V" Grid.Column="4"/>
-            <Button Content="B" Grid.Column="5"/>
-            <Button Content="N" Grid.Column="6"/>
-            <Button Content="M" Grid.Column="7"/>
-            <Button Content="," Grid.Column="8"/>
-            <Button Content="." Grid.Column="9"/>
-            <Button Content="/" Grid.Column="10"/>
-            <Button Content="SHIFT" Grid.Column="11" FontSize="13"/>
-        </Grid>
-        <Grid Grid.Row="4">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="6*" />
-                <ColumnDefinition />
-            </Grid.ColumnDefinitions>
-            <!--<control:Key KeyCode="SPACE" Grid.Column="0"></control:Key>
+    <Grid>
+        <Grid Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <!--#region Grid.Row=0 Content-->
+                <Button Content="`" Grid.Column="0"/>
+                <Button Content="1" Grid.Column="1"/>
+                <Button Content="2" Grid.Column="2"/>
+                <Button Content="3" Grid.Column="3"/>
+                <Button Content="4" Grid.Column="4"/>
+                <Button Content="5" Grid.Column="5"/>
+                <Button Content="6" Grid.Column="6"/>
+                <Button Content="7" Grid.Column="7"/>
+                <Button Content="8" Grid.Column="8"/>
+                <Button Content="9" Grid.Column="9"/>
+                <Button Content="0" Grid.Column="10"/>
+                <Button Content="-" Grid.Column="11"/>
+                <Button Content="=" Grid.Column="12"/>
+                <Button Content="Backspace" Grid.Column="13" FontSize="11"/>
+                <!--#endregion-->
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="1.8*"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="1.8*"/>
+                </Grid.ColumnDefinitions>
+                <!--#region Grid.row=1 Content-->
+                <Button Content="TAB" Grid.Column="0" FontSize="18"/>
+                <Button Content="Q" Grid.Column="1"/>
+                <Button Content="W" Grid.Column="2"/>
+                <Button Content="E" Grid.Column="3"/>
+                <Button Content="R" Grid.Column="4"/>
+                <Button Content="T" Grid.Column="5"/>
+                <Button Content="Y" Grid.Column="6"/>
+                <Button Content="U" Grid.Column="7"/>
+                <Button Content="I" Grid.Column="8"/>
+                <Button Content="O" Grid.Column="9"/>
+                <Button Content="P" Grid.Column="10"/>
+                <Button Content="[" Grid.Column="11"/>
+                <Button Content="]" Grid.Column="12"/>
+                <Button Content="\" Grid.Column="13" FontSize="18"/>
+                <!--#endregion-->
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <!--#region Grid.row=2 Content-->
+                <Button Content="CapsLock" Grid.Column="0" FontSize="12"/>
+                <Button Content="A" Grid.Column="1"/>
+                <Button Content="S" Grid.Column="2"/>
+                <Button Content="D" Grid.Column="3"/>
+                <Button Content="F" Grid.Column="4"/>
+                <Button Content="G" Grid.Column="5"/>
+                <Button Content="H" Grid.Column="6"/>
+                <Button Content="J" Grid.Column="7"/>
+                <Button Content="K" Grid.Column="8"/>
+                <Button Content="L" Grid.Column="9"/>
+                <Button Content=";" Grid.Column="10"/>
+                <Button Content="'" Grid.Column="11"/>
+                <Button Content="Enter" Grid.Column="12"  FontSize="15"/>
+                <!--#endregion-->
+            </Grid>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions >
+                    <ColumnDefinition Width="2.2*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="2.2*"/>
+                </Grid.ColumnDefinitions>
+                <Button Content="SHIFT" Grid.Column="0"  FontSize="13"/>
+                <Button Content="Z" Grid.Column="1"/>
+                <Button Content="X" Grid.Column="2"/>
+                <Button Content="C" Grid.Column="3"/>
+                <Button Content="V" Grid.Column="4"/>
+                <Button Content="B" Grid.Column="5"/>
+                <Button Content="N" Grid.Column="6"/>
+                <Button Content="M" Grid.Column="7"/>
+                <Button Content="," Grid.Column="8"/>
+                <Button Content="." Grid.Column="9"/>
+                <Button Content="/" Grid.Column="10"/>
+                <Button Content="SHIFT" Grid.Column="11" FontSize="13"/>
+            </Grid>
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <!--<control:Key KeyCode="SPACE" Grid.Column="0"></control:Key>
                 <control:Key KeyCode="HANGEUL" Grid.Column="1"></control:Key>-->
+            </Grid>
         </Grid>
+        <material:DialogHost IsOpen="{Binding IsOpenDialog}">
+            <material:DialogHost.DialogContent>
+                <Grid Background="White" Margin="16">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <DockPanel Margin="0,0,0,20">
+                        <TextBlock Text="{StaticResource SelectedKeyString}"
+                                   Style="{StaticResource MaterialDesignHeadline6TextBlock}"/>
+                        <TextBlock Text="{Binding SelectedKey}" Margin="0,0,20,0"
+                                   Style="{StaticResource MaterialDesignHeadline6TextBlock}"/>
+                        <Button HorizontalAlignment="Right" Width="auto"
+                                Content="{StaticResource KeyAddString}"/>
+                    </DockPanel>
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <TextBlock Text="{StaticResource KeySpeechString}"
+                                   Style="{StaticResource MaterialDesignBody1TextBlock}"/>
+                        <TextBox MinWidth="100"
+                                 FontSize="15"
+                                 Text="{Binding CurrentSpeech}"/>
+                    </StackPanel>
+                </Grid>
+            </material:DialogHost.DialogContent>
+        </material:DialogHost>
     </Grid>
 </UserControl>

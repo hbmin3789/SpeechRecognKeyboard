@@ -5,9 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SpeechRecognKeyboard"
         xmlns:control="clr-namespace:SpeechRecognKeyboard.Controls"
+        xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <control:KeyboardLayoutControl/>
+        <material:PackIcon Margin="10"
+                           HorizontalAlignment="Right" VerticalAlignment="Top"
+                           Width="20" Height="20"
+                           Kind="Cog"/>
     </Grid>
 </Window>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\SUNTECH\source\repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\App.xaml
-2-197653052
+3134195242
 
-7-1457894711
+8242762983
 301971136343
-Controls\KeyboardLayoutControl.xaml;MainWindow.xaml;
+Controls\KeyboardLayoutControl.xaml;MainWindow.xaml;Theme\Localization_ko-KR.xaml;
 
 True
 
