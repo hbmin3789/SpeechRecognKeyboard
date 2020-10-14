@@ -7,12 +7,17 @@
         xmlns:control="clr-namespace:SpeechRecognKeyboard.Controls"
         xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" 
+        Height="300" Width="800">
     <Grid>
-        <control:KeyboardLayoutControl/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <material:PackIcon Margin="10"
                            HorizontalAlignment="Right" VerticalAlignment="Top"
                            Width="20" Height="20"
                            Kind="Cog"/>
+        <control:KeyboardLayoutControl Grid.Row="1"/>
     </Grid>
 </Window>
