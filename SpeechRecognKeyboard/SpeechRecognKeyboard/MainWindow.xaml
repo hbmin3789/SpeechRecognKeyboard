@@ -8,16 +8,18 @@
         xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="MainWindow" 
-        Height="300" Width="800">
+        Height="400" Width="900"
+        ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <material:PackIcon Margin="10"
-                           HorizontalAlignment="Right" VerticalAlignment="Top"
-                           Width="20" Height="20"
-                           Kind="Cog"/>
+        <Button Width="30" Height="30" Margin="10" 
+                HorizontalAlignment="Right" VerticalAlignment="Top"
+                Padding="0">
+            <material:PackIcon Kind="Cog"/>
+        </Button>
         <control:KeyboardLayoutControl Grid.Row="1"/>
     </Grid>
 </Window>

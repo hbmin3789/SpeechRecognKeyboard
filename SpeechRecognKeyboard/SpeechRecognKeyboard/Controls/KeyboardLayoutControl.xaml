@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:SpeechRecognKeyboard.Controls"
              xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
+             d:DesignHeight="450" d:DesignWidth="1000"
              DataContext="{StaticResource MainViewModel}">
     <UserControl.Resources>
         <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignRaisedLightButton}">
@@ -14,6 +14,11 @@
             <Setter Property="Command" Value="{Binding OpenKeySettingDialogCommand}"/>
             <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Mode=Self},
                                                                 Path=Content}"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="Height" Value="auto"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="1"/>
+            <Setter Property="material:ShadowAssist.ShadowDepth" Value="Depth0"/>
         </Style>
     </UserControl.Resources>
     <Grid>
@@ -56,7 +61,9 @@
                 <Button Content="0" Grid.Column="10"/>
                 <Button Content="-" Grid.Column="11"/>
                 <Button Content="=" Grid.Column="12"/>
-                <Button Content="Backspace" Grid.Column="13" FontSize="11"/>
+                <!--<Button Content="Backspace" Grid.Column="13" 
+                        FontSize="15"
+                        Width="auto"/>-->
                 <!--#endregion-->
             </Grid>
             <Grid Grid.Row="1">
@@ -77,7 +84,8 @@
                     <ColumnDefinition Width="1.8*"/>
                 </Grid.ColumnDefinitions>
                 <!--#region Grid.row=1 Content-->
-                <Button Content="TAB" Grid.Column="0" FontSize="18"/>
+                <!--<Button Content="TAB" Grid.Column="0" FontSize="18"
+                        Width="auto"/>-->
                 <Button Content="Q" Grid.Column="1"/>
                 <Button Content="W" Grid.Column="2"/>
                 <Button Content="E" Grid.Column="3"/>
@@ -90,7 +98,8 @@
                 <Button Content="P" Grid.Column="10"/>
                 <Button Content="[" Grid.Column="11"/>
                 <Button Content="]" Grid.Column="12"/>
-                <Button Content="\" Grid.Column="13" FontSize="18"/>
+                <!--<Button Content="\" Grid.Column="13" FontSize="18"
+                        Width="auto"/>-->
                 <!--#endregion-->
             </Grid>
             <Grid Grid.Row="2">
@@ -110,7 +119,8 @@
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
                 <!--#region Grid.row=2 Content-->
-                <Button Content="CapsLock" Grid.Column="0" FontSize="12"/>
+                <!--<Button Content="CapsLock" Grid.Column="0" FontSize="15"
+                        Width="auto"/>-->
                 <Button Content="A" Grid.Column="1"/>
                 <Button Content="S" Grid.Column="2"/>
                 <Button Content="D" Grid.Column="3"/>
@@ -122,7 +132,8 @@
                 <Button Content="L" Grid.Column="9"/>
                 <Button Content=";" Grid.Column="10"/>
                 <Button Content="'" Grid.Column="11"/>
-                <Button Content="Enter" Grid.Column="12"  FontSize="15"/>
+                <!--<Button Content="Enter" Grid.Column="12"  FontSize="20"
+                        Width="auto"/>-->
                 <!--#endregion-->
             </Grid>
             <Grid Grid.Row="3">
@@ -140,7 +151,8 @@
                     <ColumnDefinition/>
                     <ColumnDefinition Width="2.2*"/>
                 </Grid.ColumnDefinitions>
-                <Button Content="SHIFT" Grid.Column="0"  FontSize="13"/>
+                <!--<Button Content="SHIFT" Grid.Column="0"  FontSize="18"
+                        Width="auto"/>-->
                 <Button Content="Z" Grid.Column="1"/>
                 <Button Content="X" Grid.Column="2"/>
                 <Button Content="C" Grid.Column="3"/>
@@ -151,7 +163,8 @@
                 <Button Content="," Grid.Column="8"/>
                 <Button Content="." Grid.Column="9"/>
                 <Button Content="/" Grid.Column="10"/>
-                <Button Content="SHIFT" Grid.Column="11" FontSize="13"/>
+                <!--<Button Content="SHIFT" Grid.Column="11" FontSize="18"
+                        Width="auto"/>-->
             </Grid>
             <Grid Grid.Row="4">
                 <Grid.ColumnDefinitions>
@@ -175,7 +188,8 @@
                         <TextBlock Text="{Binding SelectedKey}" Margin="0,0,20,0"
                                    Style="{StaticResource MaterialDesignHeadline6TextBlock}"/>
                         <Button HorizontalAlignment="Right" Width="auto"
-                                Content="{StaticResource KeyAddString}"/>
+                                Content="{StaticResource KeyAddString}"
+                                Command="{Binding AddKeyCommand}"/>
                     </DockPanel>
                     <StackPanel Grid.Row="1" Orientation="Horizontal">
                         <TextBlock Text="{StaticResource KeySpeechString}"
@@ -183,6 +197,8 @@
                         <TextBox MinWidth="100"
                                  FontSize="15"
                                  Text="{Binding CurrentSpeech}"/>
+                        <Button Margin="30,0,0,0" Content="{StaticResource CloseString}"
+                                Command="{Binding CloseDialogCommand}"/>
                     </StackPanel>
                 </Grid>
             </material:DialogHost.DialogContent>

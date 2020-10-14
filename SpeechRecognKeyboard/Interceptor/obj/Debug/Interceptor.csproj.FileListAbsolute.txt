@@ -8,3 +8,8 @@ D:\Code\Interceptor\Interceptor\obj\Debug\Interceptor.dll
 D:\Code\Interceptor\Interceptor\bin\Debug\Interceptor.dll
 D:\Code\Interceptor\Interceptor\bin\Debug\Interceptor.pdb
 D:\Code\Interceptor\Interceptor\obj\Debug\Interceptor.pdb
+C:\Users\jangdarnam\Source\Repos\SpeechRecognKeyboard\SpeechRecognKeyboard\Interceptor\bin\Debug\Interceptor.dll
+C:\Users\jangdarnam\Source\Repos\SpeechRecognKeyboard\SpeechRecognKeyboard\Interceptor\bin\Debug\Interceptor.pdb
+C:\Users\jangdarnam\Source\Repos\SpeechRecognKeyboard\SpeechRecognKeyboard\Interceptor\obj\Debug\Interceptor.csproj.CoreCompileInputs.cache
+C:\Users\jangdarnam\Source\Repos\SpeechRecognKeyboard\SpeechRecognKeyboard\Interceptor\obj\Debug\Interceptor.dll
+C:\Users\jangdarnam\Source\Repos\SpeechRecognKeyboard\SpeechRecognKeyboard\Interceptor\obj\Debug\Interceptor.pdb
