@@ -6,4 +6,5 @@
     <sys:String x:Key="SelectedKeyString">선택된 키 : </sys:String>
     <sys:String x:Key="KeySpeechString">할 말 : </sys:String>
     <sys:String x:Key="CloseString">닫기</sys:String>
+    <sys:String x:Key="KeySetting">전체 키 관리</sys:String>
 </ResourceDictionary>

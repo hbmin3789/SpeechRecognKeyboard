@@ -55,7 +55,10 @@ namespace Interceptor
         }
 
         /*
-         * Attempts to load the driver. You may get an error if the C++ library 'interception.dll' is not in the same folder as the executable and other DLLs. MouseFilterMode and KeyboardFilterMode must be set before Load() is called. Calling Load() twice has no effect if already loaded.
+         * Attempts to load the driver,
+         * You may get an error if the C++ library 'interception.dll' is not in the same folder as the executable and other DLLs.
+         * MouseFilterMode and KeyboardFilterMode must be set before Load() is called.
+         * Calling Load() twice has no effect if already loaded.
          */
         public bool Load()
         {
@@ -205,7 +208,8 @@ namespace Interceptor
         }
 
         /// <summary>
-        /// Converts a character to a Keys enum and a 'do we need to press shift'.
+        /// 키보드 키이벤트를 튜플로 변환하는 함수(WM_CHAR로 취급할수 있는 키인듯)
+        /// 
         /// </summary>
         private Tuple<Keys, bool> CharacterToKeysEnum(char c)
         {

@@ -24,5 +24,10 @@ namespace SpeechRecognKeyboard
         {
             InitializeComponent();
         }
+
+        private void btnSetKeySetting_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -15,11 +15,29 @@
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        <Button x:Name="btnSetKeySetting" Width="80" Height="30"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Content="{StaticResource KeySetting}"
+                Click="btnSetKeySetting_Click"/>
+
         <Button Width="30" Height="30" Margin="10" 
                 HorizontalAlignment="Right" VerticalAlignment="Top"
                 Padding="0">
             <material:PackIcon Kind="Cog"/>
         </Button>
         <control:KeyboardLayoutControl Grid.Row="1"/>
+        <material:DialogHost>
+            <Grid>
+                <ListView>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </material:DialogHost>
     </Grid>
 </Window>
