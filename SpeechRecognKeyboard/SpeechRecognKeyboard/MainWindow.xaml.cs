@@ -27,7 +27,7 @@ namespace SpeechRecognKeyboard
 
         private void btnSetKeySetting_Click(object sender, RoutedEventArgs e)
         {
-
+            diaKeySetting.IsOpen = !diaKeySetting.IsOpen;
         }
     }
 }

@@ -100,3 +100,8 @@ C:\Users\jangdarnam\Source\Repos\SpeechRecognKeyboard\SpeechRecognKeyboard\Speec
 C:\Users\jangdarnam\Source\Repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\obj\Debug\SpeechRecognKeyboard.pdb
 C:\Users\jangdarnam\Source\Repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\bin\Debug\Interceptor.dll
 C:\Users\jangdarnam\Source\Repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\bin\Debug\Interceptor.pdb
+C:\Users\SUNTECH\source\repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\bin\Debug\Interceptor.dll
+C:\Users\SUNTECH\source\repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\bin\Debug\Microsoft.Speech.dll
+C:\Users\SUNTECH\source\repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\bin\Debug\Interceptor.pdb
+C:\Users\SUNTECH\source\repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\bin\Debug\Newtonsoft.Json.dll
+C:\Users\SUNTECH\source\repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\bin\Debug\Newtonsoft.Json.xml

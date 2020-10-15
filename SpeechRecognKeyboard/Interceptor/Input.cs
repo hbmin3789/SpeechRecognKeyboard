@@ -197,13 +197,13 @@ namespace Interceptor
             {
                 var tuple = CharacterToKeysEnum(letter);
 
-                if (tuple.Item2 == true) // We need to press shift to get the next character
-                    SendKey(Keys.LeftShift, KeyState.Down);
+                //if (tuple.Item2 == true) // We need to press shift to get the next character
+                    //SendKey(Keys.LeftShift, KeyState.Down);
 
                 SendKey(tuple.Item1);
 
-                if (tuple.Item2 == true)
-                    SendKey(Keys.LeftShift, KeyState.Up);
+                //if (tuple.Item2 == true)
+                    //SendKey(Keys.LeftShift, KeyState.Up);
             }
         }
 
@@ -287,46 +287,46 @@ namespace Interceptor
                     return new Tuple<Keys,bool>(Keys.Nine, false);
                 case '0':
                     return new Tuple<Keys,bool>(Keys.Zero, false);
-                case '-':
-                    return new Tuple<Keys,bool>(Keys.DashUnderscore, false);
-                case '+':
-                    return new Tuple<Keys,bool>(Keys.PlusEquals, false);
+                //case '-':
+                //    return new Tuple<Keys,bool>(Keys.DashUnderscore, false);
+                //case '+':
+                //    return new Tuple<Keys,bool>(Keys.PlusEquals, false);
                 case '[':
                     return new Tuple<Keys,bool>(Keys.OpenBracketBrace, false);
                 case ']':
                     return new Tuple<Keys,bool>(Keys.CloseBracketBrace, false);
                 case ';':
                     return new Tuple<Keys,bool>(Keys.SemicolonColon, false);
-                case '\'':
-                    return new Tuple<Keys,bool>(Keys.SingleDoubleQuote, false);
-                case ',':
-                    return new Tuple<Keys,bool>(Keys.CommaLeftArrow, false);
-                case '.':
-                    return new Tuple<Keys,bool>(Keys.PeriodRightArrow, false);
-                case '/':
-                    return new Tuple<Keys,bool>(Keys.ForwardSlashQuestionMark, false);
+                //case '\'':
+                //    return new Tuple<Keys,bool>(Keys.SingleDoubleQuote, false);
+                //case ',':
+                //    return new Tuple<Keys,bool>(Keys.CommaLeftArrow, false);
+                //case '.':
+                //    return new Tuple<Keys,bool>(Keys.PeriodRightArrow, false);
+                //case '/':
+                //    return new Tuple<Keys,bool>(Keys.ForwardSlashQuestionMark, false);
                 case '{':
                     return new Tuple<Keys,bool>(Keys.OpenBracketBrace, true);
                 case '}':
                     return new Tuple<Keys,bool>(Keys.CloseBracketBrace, true);
                 case ':':
                     return new Tuple<Keys,bool>(Keys.SemicolonColon, true);
-                case '\"':
-                    return new Tuple<Keys,bool>(Keys.SingleDoubleQuote, true);
-                case '<':
-                    return new Tuple<Keys,bool>(Keys.CommaLeftArrow, true);
-                case '>':
-                    return new Tuple<Keys,bool>(Keys.PeriodRightArrow, true);
-                case '?':
-                    return new Tuple<Keys,bool>(Keys.ForwardSlashQuestionMark, true);
-                case '\\':
-                    return new Tuple<Keys,bool>(Keys.BackslashPipe, false);
-                case '|':
-                    return new Tuple<Keys,bool>(Keys.BackslashPipe, true);
+                //case '\"':
+                //    return new Tuple<Keys,bool>(Keys.SingleDoubleQuote, true);
+                //case '<':
+                //    return new Tuple<Keys,bool>(Keys.CommaLeftArrow, true);
+                //case '>':
+                //    return new Tuple<Keys,bool>(Keys.PeriodRightArrow, true);
+                //case '?':
+                //    return new Tuple<Keys,bool>(Keys.ForwardSlashQuestionMark, true);
+                //case '\\':
+                //    return new Tuple<Keys,bool>(Keys.BackslashPipe, false);
+                //case '|':
+                //    return new Tuple<Keys,bool>(Keys.BackslashPipe, true);
                 case '`':
-                    return new Tuple<Keys,bool>(Keys.Tilde, false);
+                    return new Tuple<Keys, bool>(Keys.Tilde, false);
                 case '~':
-                    return new Tuple<Keys,bool>(Keys.Tilde, true);
+                    return new Tuple<Keys, bool>(Keys.Tilde, true);
                 case '!':
                     return new Tuple<Keys,bool>(Keys.One, true);
                 case '@':
@@ -347,10 +347,10 @@ namespace Interceptor
                     return new Tuple<Keys,bool>(Keys.Nine, true);
                 case ')':
                     return new Tuple<Keys, bool>(Keys.Zero, true);
-                case ' ':
-                    return new Tuple<Keys, bool>(Keys.Space, true);
+                //case ' ':
+                //    return new Tuple<Keys, bool>(Keys.Space, true);
                 default:
-                    return new Tuple<Keys, bool>(Keys.ForwardSlashQuestionMark, true);
+                    return new Tuple<Keys, bool>(Keys.A, true);
             }
         }
 

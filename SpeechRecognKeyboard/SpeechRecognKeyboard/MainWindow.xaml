@@ -6,10 +6,18 @@
         xmlns:local="clr-namespace:SpeechRecognKeyboard"
         xmlns:control="clr-namespace:SpeechRecognKeyboard.Controls"
         xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         Title="MainWindow" 
-        Height="400" Width="900"
-        ResizeMode="NoResize">
+        Height="500" Width="1200"
+        ResizeMode="NoResize"
+        DataContext="{StaticResource MainViewModel}"
+        IsEnabled="{Binding MainWindowEnabled}">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="ContentRendered">
+            <i:InvokeCommandAction Command="{Binding OnContentRenderedCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -26,18 +34,35 @@
             <material:PackIcon Kind="Cog"/>
         </Button>
         <control:KeyboardLayoutControl Grid.Row="1"/>
-        <material:DialogHost>
-            <Grid>
-                <ListView>
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </Grid>
+        <material:DialogHost x:Name="diaKeySetting"
+                             Grid.RowSpan="2"
+                             MinWidth="150" MaxHeight="300">
+            <material:DialogHost.DialogContent>
+                <Grid Margin="16" MaxHeight="400">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Row="0" Width="70"
+                            HorizontalAlignment="Right" VerticalAlignment="Center"
+                            Content="{StaticResource CloseString}"
+                            Click="btnSetKeySetting_Click"
+                            Command="{Binding}"/>
+
+                    <ListView Grid.Row="1" ItemsSource="{Binding KeyItems}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding KeyDisplay}"/>
+                                    <TextBlock Text=" : "/>
+                                    <TextBox Text="{Binding Speech}"
+                                             MinWidth="100"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </material:DialogHost.DialogContent>
         </material:DialogHost>
     </Grid>
 </Window>

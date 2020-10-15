@@ -25,6 +25,13 @@ namespace SpeechRecognKeyboard.Model
             set => SetProperty(ref _speech, value);
         }
 
+        private string _keyDisplay;
+        public string KeyDisplay
+        {
+            get => _keyDisplay;
+            set => SetProperty(ref _keyDisplay, value);
+        }
+
         public KeyItem()
         {
 

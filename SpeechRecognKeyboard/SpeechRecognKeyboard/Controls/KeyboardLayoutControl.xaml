@@ -14,9 +14,9 @@
             <Setter Property="Command" Value="{Binding OpenKeySettingDialogCommand}"/>
             <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Mode=Self},
                                                                 Path=Content}"/>
-            <Setter Property="Width" Value="60"/>
+            <Setter Property="Width" Value="80"/>
             <Setter Property="Height" Value="auto"/>
-            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontSize" Value="30"/>
             <Setter Property="Margin" Value="1"/>
             <Setter Property="material:ShadowAssist.ShadowDepth" Value="Depth0"/>
         </Style>
@@ -191,7 +191,8 @@
                                 Content="{StaticResource KeyAddString}"
                                 Command="{Binding AddKeyCommand}"/>
                     </DockPanel>
-                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <StackPanel Grid.Row="1"
+                                Orientation="Horizontal">
                         <TextBlock Text="{StaticResource KeySpeechString}"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"/>
                         <TextBox MinWidth="100"
