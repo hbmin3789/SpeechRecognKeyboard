@@ -29,5 +29,19 @@ namespace SpeechRecognKeyboard
         {
             diaKeySetting.IsOpen = !diaKeySetting.IsOpen;
         }
+
+        private void cbLanguage_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string stringformat = "Theme/Localization_{0}.xaml";
+            string lang = (cbLanguage.SelectedItem as ComboBoxItem).Tag.ToString();
+            var mergedDict = Application.Current.Resources.MergedDictionaries;
+
+            mergedDict[mergedDict.Count - 1].Source = new Uri(string.Format(stringformat, lang), UriKind.Relative);
+        }
+
+        private void btnSetting_Click(object sender, RoutedEventArgs e)
+        {
+            diaSetting.IsOpen = !diaSetting.IsOpen;
+        }
     }
 }

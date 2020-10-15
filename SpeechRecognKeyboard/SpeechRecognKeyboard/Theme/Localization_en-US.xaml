@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:SpeechRecognKeyboard.Theme"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    <sys:String x:Key="KeyAddString">Add Key</sys:String>
+    <sys:String x:Key="SelectedKeyString">Selected Key :</sys:String>
+    <sys:String x:Key="KeySpeechString">Speech Text :</sys:String>
+    <sys:String x:Key="CloseString">Close</sys:String>
+    <sys:String x:Key="KeySettingString">Total Key</sys:String>
+    <sys:String x:Key="LanguageString">Language</sys:String>
+</ResourceDictionary>

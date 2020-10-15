@@ -183,22 +183,22 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <DockPanel Margin="0,0,0,20">
-                        <TextBlock Text="{StaticResource SelectedKeyString}"
+                        <TextBlock Text="{DynamicResource SelectedKeyString}"
                                    Style="{StaticResource MaterialDesignHeadline6TextBlock}"/>
                         <TextBlock Text="{Binding SelectedKey}" Margin="0,0,20,0"
                                    Style="{StaticResource MaterialDesignHeadline6TextBlock}"/>
                         <Button HorizontalAlignment="Right" Width="auto"
-                                Content="{StaticResource KeyAddString}"
+                                Content="{DynamicResource KeyAddString}"
                                 Command="{Binding AddKeyCommand}"/>
                     </DockPanel>
                     <StackPanel Grid.Row="1"
                                 Orientation="Horizontal">
-                        <TextBlock Text="{StaticResource KeySpeechString}"
+                        <TextBlock Text="{DynamicResource KeySpeechString}"
                                    Style="{StaticResource MaterialDesignBody1TextBlock}"/>
                         <TextBox MinWidth="100"
                                  FontSize="15"
                                  Text="{Binding CurrentSpeech}"/>
-                        <Button Margin="30,0,0,0" Content="{StaticResource CloseString}"
+                        <Button Margin="30,0,0,0" Content="{DynamicResource CloseString}"
                                 Command="{Binding CloseDialogCommand}"/>
                     </StackPanel>
                 </Grid>

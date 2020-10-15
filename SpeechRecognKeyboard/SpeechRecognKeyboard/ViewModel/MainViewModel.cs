@@ -17,9 +17,13 @@ namespace SpeechRecognKeyboard.ViewModel
 {
     public class MainViewModel : BindableBase
     {
+        #region Member
+
         private Dictionary<string, Keys> keyBoardSettings;
         private SpeechKeyboardManager keyboardManager;
         private SpeechRecognitionEngine speech;
+
+        #endregion
 
         #region Property
 
@@ -166,9 +170,9 @@ namespace SpeechRecognKeyboard.ViewModel
 
         private void OnContentRendered()
         {
-            keyboardManager.GetKeyboardId();
-            keyboardManager.StartKeyboardCapture();
-            MainWindowEnabled = false;
+            //keyboardManager.GetKeyboardId();
+            //keyboardManager.StartKeyboardCapture();
+            MainWindowEnabled = true;
         }
 
         private void OpenKeySetting(string Key)
@@ -272,9 +276,13 @@ namespace SpeechRecognKeyboard.ViewModel
 
         #endregion
 
+        #region Setting
+
         private void SaveSetting()
         {
             Setting.KeySetting = KeyItems;
         }
+
+        #endregion
     }
 }
