@@ -170,8 +170,8 @@ namespace SpeechRecognKeyboard.ViewModel
 
         private void OnContentRendered()
         {
-            //keyboardManager.GetKeyboardId();
-            //keyboardManager.StartKeyboardCapture();
+            keyboardManager.GetKeyboardId();
+            keyboardManager.StartKeyboardCapture();
             MainWindowEnabled = true;
         }
 
