@@ -7,92 +7,107 @@
         xmlns:control="clr-namespace:SpeechRecognKeyboard.Controls"
         xmlns:material="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:converter="clr-namespace:SpeechRecognKeyboard.Converters"
         mc:Ignorable="d"
         Title="MainWindow" 
         Height="500" Width="1200"
         ResizeMode="NoResize"
         DataContext="{StaticResource MainViewModel}"
         IsEnabled="{Binding MainWindowEnabled}">
+    <Window.Resources>
+        <converter:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="ContentRendered">
             <i:InvokeCommandAction Command="{Binding OnContentRenderedCommand}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
 
-        <!-- KeyboardSetting Dialog Open Button -->
-        <Button x:Name="btnSetKeySetting" Width="160" Height="35"
+    <Grid>
+        <Grid x:Name="gdMain">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!-- KeyboardSetting Dialog Open Button -->
+            <Button x:Name="btnSetKeySetting" Width="160" Height="35"
                 HorizontalAlignment="Left" VerticalAlignment="Top"
                 FontSize="20"
                 Content="{DynamicResource KeySettingString}"
                 Click="btnSetKeySetting_Click"/>
 
-        <!-- Setting Open Button -->
-        <Button x:Name="btnSetting" Width="30" Height="30" Margin="10" 
+            <!-- Setting Open Button -->
+            <Button x:Name="btnSetting" Width="30" Height="30" Margin="10" 
                 HorizontalAlignment="Right" VerticalAlignment="Top"
                 Padding="0"
                 Click="btnSetting_Click">
-            <material:PackIcon Kind="Cog"/>
-        </Button>
-        
-        <!-- KeyBoard -->
-        <control:KeyboardLayoutControl Grid.Row="1"/>
-        
-        
-        <!-- KeyboardSetting -->
-        <material:DialogHost x:Name="diaKeySetting"
+                <material:PackIcon Kind="Cog"/>
+            </Button>
+
+            <!-- KeyBoard -->
+            <control:KeyboardLayoutControl Grid.Row="1"/>
+
+
+            <!-- KeyboardSetting -->
+            <material:DialogHost x:Name="diaKeySetting"
                              Grid.RowSpan="2"
                              MinWidth="150" MaxHeight="300">
-            <material:DialogHost.DialogContent>
-                <Grid Margin="16" MaxHeight="400">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="50"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Button Grid.Row="0" Width="70"
+                <material:DialogHost.DialogContent>
+                    <Grid Margin="16" MaxHeight="400">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Button Grid.Row="0" Width="70"
                             HorizontalAlignment="Right" VerticalAlignment="Center"
                             Content="{DynamicResource CloseString}"
                             Click="btnSetKeySetting_Click"
                             Command="{Binding}"/>
 
-                    <ListView Grid.Row="1" ItemsSource="{Binding KeyItems}">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding KeyDisplay}"/>
-                                    <TextBlock Text=" : "/>
-                                    <TextBox Text="{Binding Speech}"
+                        <ListView Grid.Row="1" ItemsSource="{Binding KeyItems}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding KeyDisplay}"/>
+                                        <TextBlock Text=" : "/>
+                                        <TextBox Text="{Binding Speech}"
                                              MinWidth="100"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </Grid>
-            </material:DialogHost.DialogContent>
-        </material:DialogHost>
-        
-        <!-- Setting -->
-        <material:DialogHost x:Name="diaSetting"
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </material:DialogHost.DialogContent>
+            </material:DialogHost>
+
+            <!-- Setting -->
+            <material:DialogHost x:Name="diaSetting"
                              Grid.RowSpan="2">
-            <material:DialogHost.DialogContent>
-                <StackPanel Margin="16">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="0,0,20,0"
+                <material:DialogHost.DialogContent>
+                    <StackPanel Margin="16">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Margin="0,0,20,0"
                                    VerticalAlignment="Center"
                                    Text="{DynamicResource LanguageString}"/>
-                        <ComboBox x:Name="cbLanguage"
+                            <ComboBox x:Name="cbLanguage"
                                   VerticalAlignment="Center"
                                   SelectionChanged="cbLanguage_SelectionChanged">
-                            <ComboBoxItem Tag="en-US" Content="English"/>
-                            <ComboBoxItem Tag="ko-KR" Content="한국어"/>
-                        </ComboBox>
+                                <ComboBoxItem Tag="en-US" Content="English"/>
+                                <ComboBoxItem Tag="ko-KR" Content="한국어"/>
+                            </ComboBox>
+                        </StackPanel>
                     </StackPanel>
-                </StackPanel>
-            </material:DialogHost.DialogContent>
-        </material:DialogHost>
+                </material:DialogHost.DialogContent>
+            </material:DialogHost>
+        </Grid>
+
+        <!-- OnDisabled -->
+        <Grid Background="White" Opacity="0.6"
+              Visibility="{Binding MainWindowEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <TextBlock Text="{StaticResource PressAnyKeyString}"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       FontSize="55"/>
+        </Grid>
     </Grid>
 </Window>

@@ -106,3 +106,9 @@ C:\Users\SUNTECH\source\repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRe
 C:\Users\SUNTECH\source\repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\bin\Debug\Newtonsoft.Json.dll
 C:\Users\SUNTECH\source\repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\bin\Debug\Newtonsoft.Json.xml
 C:\Users\SUNTECH\source\repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\obj\Debug\Theme\Localization_en-US.baml
+C:\Users\jangdarnam\Source\Repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\bin\Debug\Microsoft.Speech.dll
+C:\Users\jangdarnam\Source\Repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\bin\Debug\Newtonsoft.Json.dll
+C:\Users\jangdarnam\Source\Repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\bin\Debug\Newtonsoft.Json.xml
+C:\Users\jangdarnam\Source\Repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\obj\Debug\Theme\Localization_en-US.baml
+C:\Users\jangdarnam\Source\Repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\bin\Debug\SpeechRecognize.Core.dll
+C:\Users\jangdarnam\Source\Repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\bin\Debug\SpeechRecognize.Core.pdb

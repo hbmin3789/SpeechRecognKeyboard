@@ -3,6 +3,7 @@ using Interceptor.Maple_STT;
 using Microsoft.Speech.Recognition;
 using Prism.Commands;
 using Prism.Mvvm;
+using SpeechRecognize.Core;
 using SpeechRecognKeyboard.Common;
 using SpeechRecognKeyboard.Model;
 using SpeechRecognKeyboard.Properties;
@@ -21,7 +22,7 @@ namespace SpeechRecognKeyboard.ViewModel
 
         private Dictionary<string, Keys> keyBoardSettings;
         private SpeechKeyboardManager keyboardManager;
-        private SpeechRecognitionEngine speech;
+        private SpeechManager speechManager;
 
         #endregion
 
@@ -87,6 +88,8 @@ namespace SpeechRecognKeyboard.ViewModel
         {
             keyBoardSettings = new Dictionary<string, Keys>();
             _keyItems = new ObservableCollection<KeyItem>();
+            speechManager = new SpeechManager();
+            keyboardManager = new SpeechKeyboardManager();
         }
 
         private void InitCommands()
@@ -177,7 +180,6 @@ namespace SpeechRecognKeyboard.ViewModel
 
         private void OpenKeySetting(string Key)
         {
-            StopSTT();
             IsOpenDialog = true;
             SelectedKey = Key;
         }
@@ -206,7 +208,6 @@ namespace SpeechRecognKeyboard.ViewModel
         private void CloseDialog()
         {
             IsOpenDialog = false;
-            StartSTT();
             SaveSetting();
         }
 
@@ -224,54 +225,6 @@ namespace SpeechRecognKeyboard.ViewModel
         {
             keyboardManager.GetKeyboardId();
             keyboardManager.StartKeyboardCapture();
-        }
-
-        #endregion
-
-        #region STT
-
-        public void StartSTT()
-        {
-            try
-            {
-                speech = new SpeechRecognitionEngine();
-                Choices choices = GetChoicesFromList(KeyItems);
-                GrammarBuilder gb = new GrammarBuilder();
-                gb.Append(choices);
-
-                Grammar g = new Grammar(gb);
-
-                speech.LoadGrammar(g);
-                speech.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(Speech_SpeechRecognized);
-                speech.SetInputToDefaultAudioDevice();
-                speech.RecognizeAsync(RecognizeMode.Multiple);
-            }
-            catch (Exception e)
-            {
-                string msg = e.Message;
-            }
-        }
-
-        public void StopSTT()
-        {
-            speech.RecognizeAsyncStop();
-        }
-
-        private Choices GetChoicesFromList(ObservableCollection<KeyItem> skillKeyItems)
-        {
-            Choices retval = new Choices();
-            for (int i = 0; i < skillKeyItems.Count; i++)
-            {
-                retval.Add(skillKeyItems[i].Speech);
-            }
-
-            return retval;
-        }
-
-        private void Speech_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
-        {
-            var keyItem = KeyItems.Where(x => x.Speech.Equals(e.Result.Text)).FirstOrDefault();
-            keyboardManager.PressKey(keyItem.Keys);
         }
 
         #endregion

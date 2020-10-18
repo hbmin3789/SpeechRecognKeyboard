@@ -107,6 +107,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Common\Setting.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Model\KeyItem.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Page Include="Controls\KeyboardLayoutControl.xaml">
@@ -171,6 +172,10 @@
     <ProjectReference Include="..\Interceptor\Interceptor.csproj">
       <Project>{C451A00E-77F1-4F3F-B7EE-27DC712EA316}</Project>
       <Name>Interceptor</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SpeechRecognize.Core\SpeechRecognize.Core.csproj">
+      <Project>{fa77b9a3-ac0b-4101-b50e-4a719329327e}</Project>
+      <Name>SpeechRecognize.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
