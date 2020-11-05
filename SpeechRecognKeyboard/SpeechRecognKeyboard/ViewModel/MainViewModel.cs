@@ -4,6 +4,7 @@ using Microsoft.Speech.Recognition;
 using Prism.Commands;
 using Prism.Mvvm;
 using SpeechRecognize.Core;
+using SpeechRecognize.Core.Interfaces.Keyboard;
 using SpeechRecognKeyboard.Common;
 using SpeechRecognKeyboard.Model;
 using SpeechRecognKeyboard.Properties;
@@ -21,7 +22,7 @@ namespace SpeechRecognKeyboard.ViewModel
         #region Member
 
         private Dictionary<string, Keys> keyBoardSettings;
-        private SpeechKeyboardManager keyboardManager;
+        private IKeyboardManager keyboardManager;
         private SpeechManager speechManager;
 
         #endregion
@@ -91,7 +92,6 @@ namespace SpeechRecognKeyboard.ViewModel
             keyBoardSettings = new Dictionary<string, Keys>();
             _keyItems = new ObservableCollection<KeyItem>();
             speechManager = new SpeechManager();
-            keyboardManager = new SpeechKeyboardManager();
         }
 
         private void InitCommands()
@@ -101,6 +101,19 @@ namespace SpeechRecognKeyboard.ViewModel
             CloseDialogCommand = new DelegateCommand(CloseDialog);
             OnContentRenderedCommand = new DelegateCommand(OnContentRendered);
             OnSTTStartCommand = new DelegateCommand(OnSTTStart);
+        }
+
+        private void InitSpeechManager()
+        {
+            speechManager.SetOnRecognized((sender, e) => 
+            {
+                var item = KeyItems.Where(x => x.Speech == e.Result.Text).FirstOrDefault();
+                if(item != null)
+                {
+                    //item.Keys
+                    keyboardManager.PressKey();
+                }
+            });
         }
 
         private void OnSTTStart()
@@ -192,8 +205,8 @@ namespace SpeechRecognKeyboard.ViewModel
 
         private void OnContentRendered()
         {
-            keyboardManager.GetKeyboardId();
-            keyboardManager.StartKeyboardCapture();
+            //keyboardManager.GetKeyboardId();
+            //keyboardManager.StartKeyboardCapture();
             MainWindowEnabled = true;
         }
 
@@ -236,14 +249,14 @@ namespace SpeechRecognKeyboard.ViewModel
 
         public void OnDestroy()
         {
-            keyboardManager.DestroyContext();
-            keyboardManager.AbortKeyboardCapture();
+            //keyboardManager.DestroyContext();
+            //keyboardManager.AbortKeyboardCapture();
         }
 
         public void GetKeyboardId()
         {
-            keyboardManager.GetKeyboardId();
-            keyboardManager.StartKeyboardCapture();
+            //keyboardManager.GetKeyboardId();
+            //keyboardManager.StartKeyboardCapture();
         }
 
         #endregion
