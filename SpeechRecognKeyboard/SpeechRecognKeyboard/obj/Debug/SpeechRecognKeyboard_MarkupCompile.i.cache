@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\jangdarnam\Source\Repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\obj\Debug\
+C:\Users\SUNTECH\Documents\Github\SpeechKbd\SpeechRecognKeyboard\SpeechRecognKeyboard\obj\Debug\
 SpeechRecognKeyboard
 none
 false
 DEBUG;TRACE
-C:\Users\jangdarnam\Source\Repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognKeyboard\App.xaml
+C:\Users\SUNTECH\Documents\Github\SpeechKbd\SpeechRecognKeyboard\SpeechRecognKeyboard\App.xaml
 41747344569
 
-11397007841
-34-1767337777
+12-1455907736
+34-1661973704
 Controls\KeyboardLayoutControl.xaml;MainWindow.xaml;Theme\Localization_en-US.xaml;Theme\Localization_ko-KR.xaml;
 
-False
+True
 

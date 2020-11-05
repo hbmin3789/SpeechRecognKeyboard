@@ -109,6 +109,7 @@
     <Compile Include="Common\Setting.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Model\KeyItem.cs" />
+    <Compile Include="Model\KeyPress.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Page Include="Controls\KeyboardLayoutControl.xaml">
       <SubType>Designer</SubType>
