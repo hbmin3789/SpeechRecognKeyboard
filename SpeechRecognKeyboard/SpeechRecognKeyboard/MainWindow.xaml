@@ -45,6 +45,11 @@
                 <material:PackIcon Kind="Cog"/>
             </Button>
 
+            <Button HorizontalAlignment="Center"
+                    Width="300"
+                    Content="{DynamicResource StartSTTKeyboardString}"
+                    />
+
             <!-- KeyBoard -->
             <control:KeyboardLayoutControl Grid.Row="1"/>
 
@@ -103,11 +108,11 @@
         </Grid>
 
         <!-- OnDisabled -->
-        <Grid Background="White" Opacity="0.6"
+        <!--<Grid Background="White" Opacity="0.6"
               Visibility="{Binding MainWindowEnabled, Converter={StaticResource BooleanToVisibilityConverter}}">
             <TextBlock Text="{StaticResource PressAnyKeyString}"
                        HorizontalAlignment="Center" VerticalAlignment="Center"
                        FontSize="55"/>
-        </Grid>
+        </Grid>-->
     </Grid>
 </Window>

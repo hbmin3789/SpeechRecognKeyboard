@@ -8,4 +8,7 @@
     <sys:String x:Key="CloseString">Close</sys:String>
     <sys:String x:Key="KeySettingString">Total Key</sys:String>
     <sys:String x:Key="LanguageString">Language</sys:String>
+
+    <sys:String x:Key="StartSTTKeyboardString">음성인식 시작</sys:String>
+    <sys:String x:Key="StopSTTKeyboardString">음성인식 중지</sys:String>
 </ResourceDictionary>

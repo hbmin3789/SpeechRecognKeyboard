@@ -73,6 +73,8 @@ namespace SpeechRecognKeyboard.ViewModel
 
         public DelegateCommand OnContentRenderedCommand { get; set; }
 
+        public DelegateCommand OnSTTStartCommand { get; set; }
+
         #endregion
 
         public MainViewModel()
@@ -98,9 +100,26 @@ namespace SpeechRecognKeyboard.ViewModel
             AddKeyCommand = new DelegateCommand(AddKey);
             CloseDialogCommand = new DelegateCommand(CloseDialog);
             OnContentRenderedCommand = new DelegateCommand(OnContentRendered);
+            OnSTTStartCommand = new DelegateCommand(OnSTTStart);
         }
 
-        
+        private void OnSTTStart()
+        {
+            if (speechManager.IsSpeechRecognizing)
+            {
+                speechManager.StopSTT();
+            }
+            else
+            {
+                List<string> speechList = new List<string>();
+                KeyItems.ToList().ForEach((x) => 
+                {
+                    speechList.Add(x.Speech);
+                });
+
+                speechManager.StartSTT(speechList);
+            }
+        }
 
         private void InitKeyItems()
         {
@@ -237,5 +256,7 @@ namespace SpeechRecognKeyboard.ViewModel
         }
 
         #endregion
+
+        
     }
 }
