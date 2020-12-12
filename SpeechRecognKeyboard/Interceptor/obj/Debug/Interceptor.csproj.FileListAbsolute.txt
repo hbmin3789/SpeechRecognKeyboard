@@ -19,4 +19,3 @@ C:\Users\SUNTECH\source\repos\SpeechRecognKeyboard\SpeechRecognKeyboard\Intercep
 C:\Users\SUNTECH\source\repos\SpeechRecognKeyboard\SpeechRecognKeyboard\Interceptor\obj\Debug\Interceptor.csproj.CoreCompileInputs.cache
 C:\Users\SUNTECH\source\repos\SpeechRecognKeyboard\SpeechRecognKeyboard\Interceptor\obj\Debug\Interceptor.dll
 C:\Users\SUNTECH\source\repos\SpeechRecognKeyboard\SpeechRecognKeyboard\Interceptor\obj\Debug\Interceptor.pdb
-C:\Users\jangdarnam\Source\Repos\SpeechRecognKeyboard\SpeechRecognKeyboard\Interceptor\obj\Debug\Interceptor.csprojAssemblyReference.cache

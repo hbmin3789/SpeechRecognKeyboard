@@ -28,10 +28,17 @@ namespace SpeechRecognKeyboard.ViewModel
 
         #region Property
 
-        private bool _mainWindowEnabled;
+        private bool _isSpeechStart;
+        public bool IsSpeechStart
+        {
+            get => _isSpeechStart;
+            set => SetProperty(ref _isSpeechStart, value);
+        }
+
+        private bool _mainWindowEnabled = false;
         public bool MainWindowEnabled
         {
-            get => _mainWindowEnabled;
+            get => !_mainWindowEnabled;
             set => SetProperty(ref _mainWindowEnabled, value);
         }
 
@@ -71,6 +78,8 @@ namespace SpeechRecognKeyboard.ViewModel
         public DelegateCommand AddKeyCommand { get; set; }
         public DelegateCommand CloseDialogCommand { get; set; }
 
+        public DelegateCommand StartRecognizeCommand { get; set; }
+
         public DelegateCommand OnContentRenderedCommand { get; set; }
 
         #endregion
@@ -80,6 +89,7 @@ namespace SpeechRecognKeyboard.ViewModel
             InitVariables();
             InitCommands();
             InitKeyItems();
+            InitSpeech();
         }
 
         #region Initialize
@@ -98,9 +108,20 @@ namespace SpeechRecognKeyboard.ViewModel
             AddKeyCommand = new DelegateCommand(AddKey);
             CloseDialogCommand = new DelegateCommand(CloseDialog);
             OnContentRenderedCommand = new DelegateCommand(OnContentRendered);
+
+            StartRecognizeCommand = new DelegateCommand(StartRecognize);
         }
 
-        
+        private void InitSpeech()
+        {
+            speechManager.SetOnRecognized((s, e) =>
+            {
+                if (keyBoardSettings.ContainsKey(e.Result.Text))
+                {
+                    keyboardManager.PressKey(keyBoardSettings[e.Result.Text]);
+                }
+            });
+        }
 
         private void InitKeyItems()
         {
@@ -184,6 +205,19 @@ namespace SpeechRecognKeyboard.ViewModel
             SelectedKey = Key;
         }
 
+        private void StartRecognize()
+        {
+            IsSpeechStart = !IsSpeechStart;
+            if (IsSpeechStart)
+            {
+                speechManager.StartSTT(keyBoardSettings.Keys);
+            }
+            else
+            {
+                speechManager.StopSTT();
+            }
+        }
+
         private void AddKey()
         {
             IsOpenDialog = false;
@@ -199,7 +233,7 @@ namespace SpeechRecognKeyboard.ViewModel
                 return;
             }
 
-            keyBoardSettings.Add(SelectedKey, key);
+            keyBoardSettings.Add(CurrentSpeech, key);
             KeyItems.Add(new KeyItem() { Keys = key, Speech = CurrentSpeech });
 
             SaveSetting();

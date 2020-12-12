@@ -11,16 +11,16 @@ namespace SpeechRecognize.Core
     public class SpeechManager
     {
         private SpeechRecognitionEngine speech;
-
+        private Action<object, SpeechRecognizedEventArgs> _onRecognized;
 
         public SpeechManager()
         {
             speech = new SpeechRecognitionEngine();
         }
 
-        public void SetOnRecognized(Action<object, SpeechRecognizedEventArgs> OnRecognized)
+        public void SetOnRecognized(Action<object, SpeechRecognizedEventArgs> onRecognized)
         {
-            speech.SpeechRecognized += new EventHandler<SpeechRecognizedEventArgs>(OnRecognized);
+            _onRecognized += onRecognized;
         }
 
         #region STT
@@ -30,6 +30,10 @@ namespace SpeechRecognize.Core
             try
             {
                 speech = new SpeechRecognitionEngine();
+                speech.SpeechRecognized += (s, e) =>
+                {
+                    _onRecognized?.Invoke(s, e);
+                };
                 Choices choices = StringListToChoices(speechList);
                 GrammarBuilder gb = new GrammarBuilder();
                 gb.Append(choices);

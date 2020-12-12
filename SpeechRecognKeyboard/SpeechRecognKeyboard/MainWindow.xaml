@@ -12,8 +12,7 @@
         Title="MainWindow" 
         Height="500" Width="1200"
         ResizeMode="NoResize"
-        DataContext="{StaticResource MainViewModel}"
-        IsEnabled="{Binding MainWindowEnabled}">
+        DataContext="{StaticResource MainViewModel}">
     <Window.Resources>
         <converter:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     </Window.Resources>
@@ -36,6 +35,11 @@
                 FontSize="20"
                 Content="{DynamicResource KeySettingString}"
                 Click="btnSetKeySetting_Click"/>
+
+            <Button x:Name="btnStartRecognize" Width="170"
+                    Content="{StaticResource StartRecognizeString}"
+                    Command="{Binding StartRecognizeCommand}"
+                    FontSize="20"/>
 
             <!-- Setting Open Button -->
             <Button x:Name="btnSetting" Width="30" Height="30" Margin="10" 
