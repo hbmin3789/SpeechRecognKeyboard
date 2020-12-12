@@ -4,6 +4,7 @@ using Microsoft.Speech.Recognition;
 using Prism.Commands;
 using Prism.Mvvm;
 using SpeechRecognize.Core;
+using SpeechRecognize.Core.Interfaces.Keyboard;
 using SpeechRecognKeyboard.Common;
 using SpeechRecognKeyboard.Model;
 using SpeechRecognKeyboard.Properties;
@@ -21,7 +22,7 @@ namespace SpeechRecognKeyboard.ViewModel
         #region Member
 
         private Dictionary<string, Keys> keyBoardSettings;
-        private SpeechKeyboardManager keyboardManager;
+        private IKeyboardManager keyboardManager;
         private SpeechManager speechManager;
 
         #endregion
@@ -82,6 +83,8 @@ namespace SpeechRecognKeyboard.ViewModel
 
         public DelegateCommand OnContentRenderedCommand { get; set; }
 
+        public DelegateCommand OnSTTStartCommand { get; set; }
+
         #endregion
 
         public MainViewModel()
@@ -99,7 +102,6 @@ namespace SpeechRecognKeyboard.ViewModel
             keyBoardSettings = new Dictionary<string, Keys>();
             _keyItems = new ObservableCollection<KeyItem>();
             speechManager = new SpeechManager();
-            keyboardManager = new SpeechKeyboardManager();
         }
 
         private void InitCommands()
@@ -108,6 +110,7 @@ namespace SpeechRecognKeyboard.ViewModel
             AddKeyCommand = new DelegateCommand(AddKey);
             CloseDialogCommand = new DelegateCommand(CloseDialog);
             OnContentRenderedCommand = new DelegateCommand(OnContentRendered);
+<<<<<<< HEAD
 
             StartRecognizeCommand = new DelegateCommand(StartRecognize);
         }
@@ -122,6 +125,41 @@ namespace SpeechRecognKeyboard.ViewModel
                 }
             });
         }
+=======
+            OnSTTStartCommand = new DelegateCommand(OnSTTStart);
+        }
+
+        private void InitSpeechManager()
+        {
+            speechManager.SetOnRecognized((sender, e) => 
+            {
+                var item = KeyItems.Where(x => x.Speech == e.Result.Text).FirstOrDefault();
+                if(item != null)
+                {
+                    //item.Keys
+                    keyboardManager.PressKey();
+                }
+            });
+        }
+
+        private void OnSTTStart()
+        {
+            if (speechManager.IsSpeechRecognizing)
+            {
+                speechManager.StopSTT();
+            }
+            else
+            {
+                List<string> speechList = new List<string>();
+                KeyItems.ToList().ForEach((x) => 
+                {
+                    speechList.Add(x.Speech);
+                });
+
+                speechManager.StartSTT(speechList);
+            }
+        }
+>>>>>>> 6319f0a19a9a5e546d31195c75989599b6b22675
 
         private void InitKeyItems()
         {
@@ -194,8 +232,8 @@ namespace SpeechRecognKeyboard.ViewModel
 
         private void OnContentRendered()
         {
-            keyboardManager.GetKeyboardId();
-            keyboardManager.StartKeyboardCapture();
+            //keyboardManager.GetKeyboardId();
+            //keyboardManager.StartKeyboardCapture();
             MainWindowEnabled = true;
         }
 
@@ -251,14 +289,14 @@ namespace SpeechRecognKeyboard.ViewModel
 
         public void OnDestroy()
         {
-            keyboardManager.DestroyContext();
-            keyboardManager.AbortKeyboardCapture();
+            //keyboardManager.DestroyContext();
+            //keyboardManager.AbortKeyboardCapture();
         }
 
         public void GetKeyboardId()
         {
-            keyboardManager.GetKeyboardId();
-            keyboardManager.StartKeyboardCapture();
+            //keyboardManager.GetKeyboardId();
+            //keyboardManager.StartKeyboardCapture();
         }
 
         #endregion
@@ -271,5 +309,7 @@ namespace SpeechRecognKeyboard.ViewModel
         }
 
         #endregion
+
+        
     }
 }

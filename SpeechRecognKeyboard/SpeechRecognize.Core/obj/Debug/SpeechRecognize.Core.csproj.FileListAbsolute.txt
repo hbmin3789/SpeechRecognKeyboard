@@ -5,3 +5,11 @@ C:\Users\jangdarnam\Source\Repos\SpeechRecognKeyboard\SpeechRecognKeyboard\Speec
 C:\Users\jangdarnam\Source\Repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognize.Core\obj\Debug\SpeechRecognize.Core.csproj.CopyComplete
 C:\Users\jangdarnam\Source\Repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognize.Core\obj\Debug\SpeechRecognize.Core.dll
 C:\Users\jangdarnam\Source\Repos\SpeechRecognKeyboard\SpeechRecognKeyboard\SpeechRecognize.Core\obj\Debug\SpeechRecognize.Core.pdb
+C:\Users\SUNTECH\Documents\Github\SpeechKbd\SpeechRecognKeyboard\SpeechRecognize.Core\bin\Debug\SpeechRecognize.Core.dll
+C:\Users\SUNTECH\Documents\Github\SpeechKbd\SpeechRecognKeyboard\SpeechRecognize.Core\bin\Debug\SpeechRecognize.Core.pdb
+C:\Users\SUNTECH\Documents\Github\SpeechKbd\SpeechRecognKeyboard\SpeechRecognize.Core\bin\Debug\Microsoft.Speech.dll
+C:\Users\SUNTECH\Documents\Github\SpeechKbd\SpeechRecognKeyboard\SpeechRecognize.Core\obj\Debug\SpeechRecognize.Core.csprojAssemblyReference.cache
+C:\Users\SUNTECH\Documents\Github\SpeechKbd\SpeechRecognKeyboard\SpeechRecognize.Core\obj\Debug\SpeechRecognize.Core.csproj.CoreCompileInputs.cache
+C:\Users\SUNTECH\Documents\Github\SpeechKbd\SpeechRecognKeyboard\SpeechRecognize.Core\obj\Debug\SpeechRecognize.Core.csproj.CopyComplete
+C:\Users\SUNTECH\Documents\Github\SpeechKbd\SpeechRecognKeyboard\SpeechRecognize.Core\obj\Debug\SpeechRecognize.Core.dll
+C:\Users\SUNTECH\Documents\Github\SpeechKbd\SpeechRecognKeyboard\SpeechRecognize.Core\obj\Debug\SpeechRecognize.Core.pdb

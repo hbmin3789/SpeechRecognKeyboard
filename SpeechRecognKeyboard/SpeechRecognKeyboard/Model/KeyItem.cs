@@ -11,6 +11,13 @@ namespace SpeechRecognKeyboard.Model
 {
     public class KeyItem : BindableBase
     {
+        private int _delay;
+        public int Delay
+        {
+            get => _delay;
+            set => SetProperty(ref _delay, value);
+        }
+
         private Keys _keys;
         public Keys Keys
         {
@@ -19,6 +26,9 @@ namespace SpeechRecognKeyboard.Model
         }
 
         private string _speech;
+        /// <summary>
+        /// 실제 유저가 말할 단어
+        /// </summary>
         public string Speech
         {
             get => _speech;
@@ -26,6 +36,9 @@ namespace SpeechRecognKeyboard.Model
         }
 
         private string _keyDisplay;
+        /// <summary>
+        /// 키 이름(shift, q,`,;)
+        /// </summary>
         public string KeyDisplay
         {
             get => _keyDisplay;

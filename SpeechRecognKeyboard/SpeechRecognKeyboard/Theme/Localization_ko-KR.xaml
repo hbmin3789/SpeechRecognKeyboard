@@ -9,6 +9,9 @@
     <sys:String x:Key="KeySettingString">전체 키 관리</sys:String>
     <sys:String x:Key="LanguageString">언어</sys:String>
 
+    <sys:String x:Key="StartSTTKeyboardString">음성인식 시작</sys:String>
+    <sys:String x:Key="StopSTTKeyboardString">음성인식 중지</sys:String>
+
     <sys:String x:Key="PressAnyKeyString">아무 키나 눌러주세요.</sys:String>
     <sys:String x:Key="StartRecognizeString">음성 인식 시작</sys:String>
 </ResourceDictionary>

@@ -11,7 +11,17 @@ namespace SpeechRecognize.Core
     public class SpeechManager
     {
         private SpeechRecognitionEngine speech;
+<<<<<<< HEAD
         private Action<object, SpeechRecognizedEventArgs> _onRecognized;
+=======
+        private bool _isSpeechRecognizing = false;
+        public bool IsSpeechRecognizing
+        {
+            get => _isSpeechRecognizing;
+            set => _isSpeechRecognizing = value;
+        }
+
+>>>>>>> 6319f0a19a9a5e546d31195c75989599b6b22675
 
         public SpeechManager()
         {
