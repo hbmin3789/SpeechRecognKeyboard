@@ -31,10 +31,10 @@
 
             <!-- KeyboardSetting Dialog Open Button -->
             <Button x:Name="btnSetKeySetting" Width="160" Height="35"
-                HorizontalAlignment="Left" VerticalAlignment="Top"
-                FontSize="20"
-                Content="{DynamicResource KeySettingString}"
-                Click="btnSetKeySetting_Click"/>
+                    HorizontalAlignment="Left" VerticalAlignment="Top"
+                    FontSize="20"
+                    Content="{DynamicResource KeySettingString}"
+                    Command="{Binding OpenSpeechManagerCommand}"/>
 
             <Button x:Name="btnStartRecognize" Width="170"
                     Content="{StaticResource StartRecognizeString}"
@@ -55,8 +55,9 @@
 
             <!-- KeyboardSetting -->
             <material:DialogHost x:Name="diaKeySetting"
-                             Grid.RowSpan="2"
-                             MinWidth="150" MaxHeight="300">
+                                 Grid.RowSpan="2"
+                                 MinWidth="150" MaxHeight="300"
+                                 IsOpen="{Binding IsOpenSpeechManager}">
                 <material:DialogHost.DialogContent>
                     <Grid Margin="16" MaxHeight="400">
                         <Grid.RowDefinitions>
@@ -64,10 +65,9 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <Button Grid.Row="0" Width="70"
-                            HorizontalAlignment="Right" VerticalAlignment="Center"
-                            Content="{DynamicResource CloseString}"
-                            Click="btnSetKeySetting_Click"
-                            Command="{Binding}"/>
+                                HorizontalAlignment="Right" VerticalAlignment="Center"
+                                Content="{DynamicResource CloseString}"
+                                Command="{Binding CloseKeySettingDialogCommand}"/>
 
                         <ListView Grid.Row="1" ItemsSource="{Binding KeyItems}">
                             <ListView.ItemTemplate>
@@ -87,7 +87,8 @@
 
             <!-- Setting -->
             <material:DialogHost x:Name="diaSetting"
-                             Grid.RowSpan="2">
+                                 Grid.RowSpan="2"
+                                 IsOpen="{Binding IsOpenSpeechManager}">
                 <material:DialogHost.DialogContent>
                     <StackPanel Margin="16">
                         <StackPanel Orientation="Horizontal">

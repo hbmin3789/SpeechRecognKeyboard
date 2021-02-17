@@ -18,5 +18,10 @@ namespace SpeechRecognKeyboard
         {
 
         }
+
+        ~App()
+        {
+
+        }
     }
 }

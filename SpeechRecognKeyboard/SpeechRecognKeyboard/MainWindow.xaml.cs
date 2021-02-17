@@ -25,11 +25,6 @@ namespace SpeechRecognKeyboard
             InitializeComponent();
         }
 
-        private void btnSetKeySetting_Click(object sender, RoutedEventArgs e)
-        {
-            diaKeySetting.IsOpen = !diaKeySetting.IsOpen;
-        }
-
         private void cbLanguage_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string stringformat = "Theme/Localization_{0}.xaml";

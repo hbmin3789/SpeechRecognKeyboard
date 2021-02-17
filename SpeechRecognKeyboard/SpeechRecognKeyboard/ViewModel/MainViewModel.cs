@@ -27,6 +27,19 @@ namespace SpeechRecognKeyboard.ViewModel
         #endregion
 
         #region Property
+        private bool _isOpenSpeechDialog;
+        public bool IsOpenSpeechDialog
+        {
+            get => _isOpenSpeechDialog;
+            set => SetProperty(ref _isOpenSpeechDialog, value);
+        }
+
+        private bool _isOpenSpeechManager;
+        public bool IsOpenSpeechManager
+        {
+            get => _isOpenSpeechManager;
+            set => SetProperty(ref _isOpenSpeechManager, value);
+        }
 
         private bool _isSpeechStart;
         public bool IsSpeechStart
@@ -40,13 +53,6 @@ namespace SpeechRecognKeyboard.ViewModel
         {
             get => !_mainWindowEnabled;
             set => SetProperty(ref _mainWindowEnabled, value);
-        }
-
-        private bool _isOpenDialog = false;
-        public bool IsOpenDialog
-        {
-            get => _isOpenDialog;
-            set => SetProperty(ref _isOpenDialog, value);
         }
 
         private string _selectedKey;
@@ -73,10 +79,12 @@ namespace SpeechRecognKeyboard.ViewModel
         #endregion
 
         #region Commands
-
+        public DelegateCommand OpenSpeechManagerCommand { get; set; }
         public DelegateCommand<string> OpenKeySettingDialogCommand { get; set; }
         public DelegateCommand AddKeyCommand { get; set; }
-        public DelegateCommand CloseDialogCommand { get; set; }
+        public DelegateCommand CloseKeyManagerDialogCommand { get; set; }
+        public DelegateCommand CloseKeySettingDialogCommand { get; set; }
+
 
         public DelegateCommand StartRecognizeCommand { get; set; }
 
@@ -92,6 +100,13 @@ namespace SpeechRecognKeyboard.ViewModel
             InitSpeech();
         }
 
+        ~MainViewModel()
+        {
+            keyboardManager.AbortKeyboardCapture();
+            keyboardManager.DestroyContext();
+            speechManager.StopSTT();
+        }
+
         #region Initialize
 
         private void InitVariables()
@@ -104,13 +119,16 @@ namespace SpeechRecognKeyboard.ViewModel
 
         private void InitCommands()
         {
+            OpenSpeechManagerCommand = new DelegateCommand(OpenSpeechManager);
             OpenKeySettingDialogCommand = new DelegateCommand<string>(OpenKeySetting);
             AddKeyCommand = new DelegateCommand(AddKey);
-            CloseDialogCommand = new DelegateCommand(CloseDialog);
+            CloseKeyManagerDialogCommand = new DelegateCommand(CloseKeyManagerDialog);
             OnContentRenderedCommand = new DelegateCommand(OnContentRendered);
+            CloseKeySettingDialogCommand = new DelegateCommand(CloseKeySettingDialog);
 
             StartRecognizeCommand = new DelegateCommand(StartRecognize);
         }
+
 
         private void InitSpeech()
         {
@@ -192,6 +210,11 @@ namespace SpeechRecognKeyboard.ViewModel
 
         #region CommandMethods
 
+        private void OpenSpeechManager()
+        {
+            IsOpenSpeechManager = !IsOpenSpeechManager;
+        }
+
         private void OnContentRendered()
         {
             keyboardManager.GetKeyboardId();
@@ -201,7 +224,7 @@ namespace SpeechRecognKeyboard.ViewModel
 
         private void OpenKeySetting(string Key)
         {
-            IsOpenDialog = true;
+            IsOpenSpeechDialog = true;
             SelectedKey = Key;
         }
 
@@ -220,7 +243,7 @@ namespace SpeechRecognKeyboard.ViewModel
 
         private void AddKey()
         {
-            IsOpenDialog = false;
+            IsOpenSpeechDialog = false;
 
             Keys key;
             Enum.TryParse(SelectedKey, out key);
@@ -239,10 +262,16 @@ namespace SpeechRecognKeyboard.ViewModel
             SaveSetting();
         }
 
-        private void CloseDialog()
+        private void CloseKeyManagerDialog()
         {
-            IsOpenDialog = false;
+            IsOpenSpeechDialog = false;
+            CurrentSpeech = string.Empty;
             SaveSetting();
+        }
+
+        private void CloseKeySettingDialog()
+        {
+            IsOpenSpeechManager = false;
         }
 
         #endregion

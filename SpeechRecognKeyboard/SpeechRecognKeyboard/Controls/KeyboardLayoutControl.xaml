@@ -175,7 +175,7 @@
                 <control:Key KeyCode="HANGEUL" Grid.Column="1"></control:Key>-->
             </Grid>
         </Grid>
-        <material:DialogHost IsOpen="{Binding IsOpenDialog}">
+        <material:DialogHost IsOpen="{Binding IsOpenSpeechDialog}">
             <material:DialogHost.DialogContent>
                 <Grid Background="White" Margin="16">
                     <Grid.RowDefinitions>
@@ -199,7 +199,7 @@
                                  FontSize="15"
                                  Text="{Binding CurrentSpeech}"/>
                         <Button Margin="30,0,0,0" Content="{DynamicResource CloseString}"
-                                Command="{Binding CloseDialogCommand}"/>
+                                Command="{Binding CloseKeyManagerDialogCommand}"/>
                     </StackPanel>
                 </Grid>
             </material:DialogHost.DialogContent>
