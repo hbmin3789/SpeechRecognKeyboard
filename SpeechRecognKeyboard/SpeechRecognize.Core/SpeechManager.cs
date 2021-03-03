@@ -15,7 +15,7 @@ namespace SpeechRecognize.Core
 
         public SpeechManager()
         {
-            speech = new SpeechRecognitionEngine();
+            //speech = new SpeechRecognitionEngine();
         }
 
         public void SetOnRecognized(Action<object, SpeechRecognizedEventArgs> onRecognized)

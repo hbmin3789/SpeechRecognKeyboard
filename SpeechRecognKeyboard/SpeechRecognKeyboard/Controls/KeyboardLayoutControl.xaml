@@ -188,6 +188,7 @@
                         <TextBlock Text="{Binding SelectedKey}" Margin="0,0,20,0"
                                    Style="{StaticResource MaterialDesignHeadline6TextBlock}"/>
                         <Button HorizontalAlignment="Right" Width="auto"
+                                FontSize="20" Style="{StaticResource MaterialDesignRaisedButton}"
                                 Content="{DynamicResource KeyAddString}"
                                 Command="{Binding AddKeyCommand}"/>
                     </DockPanel>
@@ -198,7 +199,10 @@
                         <TextBox MinWidth="100"
                                  FontSize="15"
                                  Text="{Binding CurrentSpeech}"/>
-                        <Button Margin="30,0,0,0" Content="{DynamicResource CloseString}"
+                        <Button Margin="30,0,0,0" FontSize="20" Padding="0"
+                                Width="100" Height="35"
+                                Style="{StaticResource MaterialDesignRaisedButton}"
+                                Content="{DynamicResource CloseString}"
                                 Command="{Binding CloseKeyManagerDialogCommand}"/>
                     </StackPanel>
                 </Grid>

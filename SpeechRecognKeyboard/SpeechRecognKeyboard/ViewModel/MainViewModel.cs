@@ -1,5 +1,4 @@
 ﻿using Interceptor;
-using Interceptor.Maple_STT;
 using Microsoft.Speech.Recognition;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -21,7 +20,7 @@ namespace SpeechRecognKeyboard.ViewModel
         #region Member
 
         private Dictionary<string, Keys> keyBoardSettings;
-        private SpeechKeyboardManager keyboardManager;
+        private Input keyboardManager;
         private SpeechManager speechManager;
 
         #endregion
@@ -102,8 +101,7 @@ namespace SpeechRecognKeyboard.ViewModel
 
         ~MainViewModel()
         {
-            keyboardManager.AbortKeyboardCapture();
-            keyboardManager.DestroyContext();
+            keyboardManager.Unload();
             speechManager.StopSTT();
         }
 
@@ -114,7 +112,7 @@ namespace SpeechRecognKeyboard.ViewModel
             keyBoardSettings = new Dictionary<string, Keys>();
             _keyItems = new ObservableCollection<KeyItem>();
             speechManager = new SpeechManager();
-            keyboardManager = new SpeechKeyboardManager();
+            keyboardManager = new Input();
         }
 
         private void InitCommands()
@@ -136,7 +134,8 @@ namespace SpeechRecognKeyboard.ViewModel
             {
                 if (keyBoardSettings.ContainsKey(e.Result.Text))
                 {
-                    keyboardManager.PressKey(keyBoardSettings[e.Result.Text]);
+                    keyboardManager.SendKey(keyBoardSettings[e.Result.Text], KeyState.Down);
+                    keyboardManager.SendKey(keyBoardSettings[e.Result.Text], KeyState.Up);
                 }
             });
         }
@@ -217,9 +216,16 @@ namespace SpeechRecognKeyboard.ViewModel
 
         private void OnContentRendered()
         {
-            keyboardManager.GetKeyboardId();
-            keyboardManager.StartKeyboardCapture();
-            MainWindowEnabled = true;
+            keyboardManager.KeyboardFilterMode = KeyboardFilterMode.All;
+            keyboardManager.MouseFilterMode = MouseFilterMode.All;
+            if (keyboardManager.Load())
+            {
+                MainWindowEnabled = true;
+            }
+            else 
+            {
+                throw new Exception("드라이버를 확인해주세요.");
+            }
         }
 
         private void OpenKeySetting(string Key)
@@ -272,22 +278,6 @@ namespace SpeechRecognKeyboard.ViewModel
         private void CloseKeySettingDialog()
         {
             IsOpenSpeechManager = false;
-        }
-
-        #endregion
-
-        #region KeyboardManager
-
-        public void OnDestroy()
-        {
-            keyboardManager.DestroyContext();
-            keyboardManager.AbortKeyboardCapture();
-        }
-
-        public void GetKeyboardId()
-        {
-            keyboardManager.GetKeyboardId();
-            keyboardManager.StartKeyboardCapture();
         }
 
         #endregion
