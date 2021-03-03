@@ -42,12 +42,12 @@
                     FontSize="20"/>
 
             <!-- Setting Open Button -->
-            <Button x:Name="btnSetting" Width="30" Height="30" Margin="10" 
+            <!--<Button x:Name="btnSetting" Width="30" Height="30" Margin="10" 
                 HorizontalAlignment="Right" VerticalAlignment="Top"
                 Padding="0"
                 Click="btnSetting_Click">
                 <material:PackIcon Kind="Cog"/>
-            </Button>
+            </Button>-->
 
             <!-- KeyBoard -->
             <control:KeyboardLayoutControl Grid.Row="1"/>

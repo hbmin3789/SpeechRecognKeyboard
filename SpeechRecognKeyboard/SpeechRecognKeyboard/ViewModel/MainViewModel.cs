@@ -216,16 +216,16 @@ namespace SpeechRecognKeyboard.ViewModel
 
         private void OnContentRendered()
         {
-            keyboardManager.KeyboardFilterMode = KeyboardFilterMode.All;
-            keyboardManager.MouseFilterMode = MouseFilterMode.All;
-            if (keyboardManager.Load())
-            {
-                MainWindowEnabled = true;
-            }
-            else 
-            {
-                throw new Exception("드라이버를 확인해주세요.");
-            }
+            //keyboardManager.KeyboardFilterMode = KeyboardFilterMode.All;
+            //keyboardManager.MouseFilterMode = MouseFilterMode.All;
+            //if (keyboardManager.Load())
+            //{
+            //    MainWindowEnabled = true;
+            //}
+            //else 
+            //{
+            //    throw new Exception("드라이버를 확인해주세요.");
+            //}
         }
 
         private void OpenKeySetting(string Key)
